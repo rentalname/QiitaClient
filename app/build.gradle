@@ -33,6 +33,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    def retrofit_version = "2.0.2"
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
 }
 repositories {
     mavenCentral()
