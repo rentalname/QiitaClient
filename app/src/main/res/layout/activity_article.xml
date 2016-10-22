@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <sample.qiitaclient.view.ArticleView
-        android:id="@+id/article_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <data>
 
-    <WebView
-        android:id="@+id/web_view"
+        <variable
+            name="article"
+            type="sample.qiitaclient.model.Article" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <sample.qiitaclient.view.ArticleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:article="@{article}" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:loadUrl="@{article.url}" />
+    </LinearLayout>
+</layout>

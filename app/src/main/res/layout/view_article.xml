@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/profile_image_view"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_centerVertical="true"
-        android:background="#f00" />
+    <data>
 
-    <TextView
-        android:id="@+id/title_text_view"
-        android:layout_width="wrap_content"
+        <variable
+            name="article"
+            type="sample.qiitaclient.model.Article" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/profile_image_view"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="記事のタイトル"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/user_name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/title_text_view"
-        android:layout_below="@id/title_text_view"
-        android:layout_marginTop="8dp"
-        android:text="ユーザの名前"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:background="#f00"
+            android:imageUrl="@{article.user.profileImageUrl}" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/profile_image_view"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{article.title}"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="記事のタイトル" />
+
+        <TextView
+            android:id="@+id/user_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/title_text_view"
+            android:layout_below="@id/title_text_view"
+            android:layout_marginTop="8dp"
+            android:text="@{article.user.name}"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="ユーザの名前" />
+
+    </RelativeLayout>
+</layout>

@@ -8,10 +8,13 @@ android {
     defaultConfig {
         applicationId "sample.qiitaclient"
         minSdkVersion 21
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled = true
     }
     buildTypes {
         release {
@@ -24,10 +27,6 @@ android {
         androidTest.java.srcDirs += "src/androidTest/kotlin"
         main.java.srcDirs += 'src/main/kotlin'
     }
-}
-
-kapt {
-    generateStubs = true
 }
 
 dependencies {
@@ -60,11 +59,19 @@ dependencies {
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
     provided 'javax.annotation:jsr250-api:1.0'
 
+    kapt group: 'com.android.databinding', name: 'compiler', version: '2.2.0'
+    provided group: 'com.android.databinding', name: 'compiler', version: '2.2.0'
+
     compile "com.jakewharton:kotterknife:0.1.0-SNAPSHOT"
 
     androidTestCompile 'org.mockito:mockito-core:1.10.19'
     androidTestCompile 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
 }
+
+kapt {
+    generateStubs = true
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
