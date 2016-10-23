@@ -1,6 +1,7 @@
 package sample.qiitaclient.view
 
 import android.content.Context
+import android.databinding.BindingBuildInfo
 import android.databinding.BindingMethod
 import android.databinding.BindingMethods
 import android.databinding.DataBindingUtil

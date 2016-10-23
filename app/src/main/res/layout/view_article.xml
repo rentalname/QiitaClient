@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="sample.qiitaclient.model.Article" />
 
         <variable
             name="article"
@@ -21,7 +23,7 @@
             android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:background="#f00"
-            android:imageUrl="@{article.user.profileImageUrl}" />
+            bind:imageUrl="@{article.user.profileImageUrl}" />
 
         <TextView
             android:id="@+id/title_text_view"
